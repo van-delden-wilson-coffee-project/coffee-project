@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 function renderCoffee(coffee) {
     var html = '<tr class="coffee">';
@@ -10,9 +10,17 @@ function renderCoffee(coffee) {
     return html;
 }
 
+// function renderCoffees(coffees) {
+//     var html = '';
+//     for(var i = coffees.length - 1; i >= 0; i--) {
+//         html += renderCoffee(coffees[i]);
+//     }
+//     return html;
+// }
+
 function renderCoffees(coffees) {
     var html = '';
-    for(var i = coffees.length - 1; i >= 0; i--) {
+    for(var i = 0; i <= coffees.length - 1; i++) {
         html += renderCoffee(coffees[i]);
     }
     return html;
