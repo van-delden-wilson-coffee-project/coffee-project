@@ -15,23 +15,26 @@ Add functionality to update the displayed coffee as the user types into the sear
     <form>
         <label for="roast-selection"></label>
         <select id="roast-selection">
+            <option>all</option>
             <option>light</option>
             <option>medium</option>
             <option>dark</option>
         </select>
         <input type="search" id="coffee-search" placeholder="Search for coffee..." value="">
     </form>
+    <form>
+        <label for="added-coffee"></label>
+        <select name="added-coffee" id="added-coffee">
+            <option>light</option>
+            <option>medium</option>
+            <option>dark</option>
+        </select>
+        <input type="submit" id="submit-coffee" placeholder="Type a coffee to add...">
+    </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>ROAST</th>
-            </tr>
-        </thead>
-        <tbody id="coffees"></tbody>
-    </table>
+    <div>
+        <div id="coffees"></div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
