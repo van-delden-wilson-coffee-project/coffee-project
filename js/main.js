@@ -42,9 +42,13 @@ function updateSearch() {
     });
     dbody.innerHTML = renderCoffees(matching);
 }
-// function
-// {id: 14, name: 'French', roast: 'dark'}
 
+// TODO: create a new object for the array of coffees that is added to coffees
+function addCoffee(e) {
+    e.preventDefault();
+    let coffeeObj = {id: coffees.length + 1, name: submitText.value, roast: roastAdd.value};
+    coffees.push(coffeeObj);
+}
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -66,12 +70,14 @@ var coffees = [
 
 const input = document.querySelector('input');
 var dbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
+var submitButton = document.querySelector('#submit-coffee');
 var roastSelection = document.querySelector('#roast-selection');
+var roastAdd = document.getElementById("added-coffee")
 var coffeeToSearch = document.getElementById("coffee-search");
+var submitText = document.getElementById('submit-text');
 
 dbody.innerHTML = renderCoffees(coffees);
 
 roastSelection.addEventListener('change', updateCoffees);
 coffeeToSearch.addEventListener('keyup', updateSearch);
-// submitButton.addEventListener('click', addCoffee);
+submitButton.addEventListener('click', addCoffee);
