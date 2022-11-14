@@ -10,17 +10,9 @@ function renderCoffee(coffee) {
     return html;
 }
 
-// function renderCoffees(coffees) {
-//     var html = '';
-//     for(var i = coffees.length - 1; i >= 0; i--) {
-//         html += renderCoffee(coffees[i]);
-//     }
-//     return html;
-// }
-
 function renderCoffees(coffees) {
     var html = '';
-    for(var i = 0; i <= coffees.length - 1; i++) {
+    for(var i = 0; i < coffees.length; i++) {
         html += renderCoffee(coffees[i]);
     }
     return html;
@@ -55,6 +47,33 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
+
+
+
+var coffeeToSearch = document.getElementById("coffee-search");
+const input = document.querySelector('input');
+
+console.log(coffeeToSearch)
+// function checkName() {
+//     let str = coffeeToSearch.value.split("")
+//     console.log(str)
+//     if (coffees.name === str) {
+//         console.log(coffees.name)
+//     }
+//
+// }
+// input.addEventListener("change", checkName)
+
+function updateCoffee(e) {
+    renderCoffee(coffeeToSearch) = e.target.value;
+}
+input.addEventListener("change", updateCoffee)
+
+// function searchForCoffee(arr) {
+//     coffees.forEach(coffee => checkName()
+//
+//     )
+// }
 
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
