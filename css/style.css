@@ -72,6 +72,18 @@ p {
     display: flex;
     justify-content: center;
 }
+#roast-selection {
+    padding:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: var(--text-color-dark-green);
+}
+#roast-selection:focus {
+    text-shadow: 1px 1px var(--button-color);
+    box-shadow:0 0 15px 4px rgba(0,0,0,1);
+}
+
 #coffee-search {
     padding:10px;
     border:0;
@@ -84,12 +96,18 @@ p {
     text-shadow: 1px 1px var(--button-color);
     box-shadow:0 0 15px 4px rgba(0,0,0,1);
 }
-
-#submit-coffee {
-    background-color: var(--navbar-bg-color);
-    color: var(--outline-bg-color);
-    box-shadow: 4px 4px var(--button-color);
+#added-coffee {
+    padding:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: var(--text-color-dark-green);
 }
+#added-coffee:focus {
+    text-shadow: 1px 1px var(--button-color);
+    box-shadow:0 0 15px 4px rgba(0,0,0,1);
+}
+
 #submit-text {
     padding:10px;
     border:0;
@@ -101,7 +119,11 @@ p {
     text-shadow: 1px 1px var(--button-color);
     box-shadow:0 0 15px 4px rgba(0,0,0,1);
 }
-
+#submit-coffee {
+    background-color: var(--navbar-bg-color);
+    color: var(--outline-bg-color);
+    box-shadow: 4px 4px var(--button-color);
+}
 .footer {
     height: 100%;
     position: sticky;
