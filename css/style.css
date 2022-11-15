@@ -2,36 +2,40 @@
     --espresso-color: #563635;
     --text-color-dark-green: #5B6057;
     --text-color-green: #6E9075;
-    --host-bg-light-green: #78C091;
+    --text-color-light-green: #78C091;
     --button-color: #81F0E5;
     --background-color: #F0F0F0;
     --outline-bg-color: #E6E6E6;
-}
-table {
-    border-collapse: collapse;
-    margin: 15px 0;
-}
-td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
 }
 body {
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0;
+    background-color: var(--background-color);
+}
+h1 {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bolder;
+    font-size: 3em;
+    color: var(--espresso-color);
+    display: flex;
+    justify-content: center;
 }
 h3 {
     color: var(--text-color-dark-green);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 2em;
 }
-/*#coffees {*/
-/*    display: flex;*/
-/*    flex-wrap: nowrap;*/
-/*    flex-direction: column;*/
-/*}*/
-/*.coffee {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*}*/
+p {
+    color: var(--text-color-light-green);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.25em;
+}
+#coffees {
+}
+.coffee {
+
+}
 .coffee:nth-child(odd) {
     float: left;
     margin-left: 1em;
@@ -40,7 +44,6 @@ h3 {
     float: left;
     margin-left: 1em;
 }
-
-/*.remove-id {*/
-/*    display: none;*/
-/*}*/
+.remove-id {
+    display: none;
+}
