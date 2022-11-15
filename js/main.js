@@ -42,7 +42,7 @@ function updateCoffees(e) {
     coffees.forEach(function (coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
-        } else if (selectedRoast === 'all') {
+        } else if (selectedRoast === 'all' || selectedRoast === '') {
             filteredCoffees.push(coffee);
         }
     });
@@ -82,7 +82,9 @@ function addCoffee(e) {
     localStorage.setItem(coffeeStorage, JSON.stringify(coffeeObj));
     JSON.parse(window.localStorage.getItem(coffeeStorage));
 
-    // TODO:Use below for testing localstorage
+    // TODO:Use below for testing localstorage. Make it so that localstorage holds more than 1 coffeeObj. When page reload, all coffeeObj stay on the page
+    // Localstorage = localstorage + coffeobj
+    // Make it
     // console.log(JSON.parse(window.localStorage.getItem(coffeeStorage)));
 }
 
