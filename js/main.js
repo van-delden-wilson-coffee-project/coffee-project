@@ -3,8 +3,8 @@
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
     html += '<div class="remove-id">' + coffee.id + '</div>';
-    html += '<div>' + coffee.name + '</div>';
-    html += '<div>' + coffee.roast + '</div>';
+    html += '<h3>' + coffee.name + '</h3>';
+    html += '<p>' + coffee.roast + '</p>';
     html += '</div>';
     return html;
 }
@@ -22,7 +22,7 @@ function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
+    coffees.forEach(function (coffee) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         } else if (selectedRoast === 'all') {
@@ -35,8 +35,8 @@ function updateCoffees(e) {
 function updateSearch() {
     let compare = coffeeToSearch.value;
     let matching = [];
-    coffees.forEach(function(coffee) {
-        if(coffee.name.toLowerCase().indexOf(compare) !== -1 || coffee.roast.toLowerCase().indexOf(compare) !== -1) {
+    coffees.forEach(function (coffee) {
+        if (coffee.name.toLowerCase().indexOf(compare.toLowerCase()) !== -1 || coffee.roast.toLowerCase().indexOf(compare) !== -1) {
             matching.push(coffee);
         }
     });
@@ -46,7 +46,11 @@ function updateSearch() {
 // TODO: create a new object for the array of coffees that is added to coffees
 function addCoffee(e) {
     e.preventDefault();
-    let coffeeObj = {id: coffees.length + 1, name: submitText.value, roast: roastAdd.value};
+    let coffeeObj = {
+        id: coffees.length + 1,
+        name: submitText.value,
+        roast: roastAdd.value
+    };
     coffees.push(coffeeObj);
 }
 
