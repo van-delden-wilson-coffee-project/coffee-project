@@ -10,7 +10,7 @@
 }
 body {
     box-sizing: border-box;
-    height: 200vh;
+    height: 100%;
     margin: 0 auto;
     padding: 0;
     background-color: var(--background-color);
@@ -22,6 +22,10 @@ nav.navbar-custom-1 {
 #coffee-logo {
     height: 200px;
     width: 200px;
+    /*position: relative;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    margin: auto;
     display: flex;
     justify-content: center;
     border-radius: 50%;
@@ -50,7 +54,11 @@ p {
     text-shadow: 1px 1px var(--button-color);
 }
 .coffee {
-
+    border-bottom: solid 2px;
+    margin: 1em;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 .coffee:nth-child(odd) {
     float: left;
@@ -61,9 +69,8 @@ p {
     margin-left: 1em;
 }
 #coffee-add-form {
-    position: sticky;
-    top: 100em;
-    /*transform: translate(-50%, -50%);*/
+    display: flex;
+    justify-content: center;
 }
 #submit-text {
     border: none;
@@ -75,9 +82,13 @@ p {
     box-shadow: 4px 4px var(--button-color);
 }
 .footer {
+    height: 100%;
+    position: sticky;
+    bottom: 0;
     background-color: var(--navbar-bg-color);
     margin: auto;
     flex-shrink: 0;
+    padding: 1em 0;
 }
 .remove-id {
     display: none;
