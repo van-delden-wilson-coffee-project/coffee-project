@@ -83,7 +83,6 @@ p {
     text-shadow: 1px 1px var(--button-color);
     box-shadow:0 0 15px 4px rgba(0,0,0,1);
 }
-
 #coffee-search {
     padding:10px;
     border:0;
@@ -91,7 +90,6 @@ p {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     color: var(--text-color-dark-green);
 }
-
 #coffee-search:focus {
     text-shadow: 1px 1px var(--button-color);
     box-shadow:0 0 15px 4px rgba(0,0,0,1);
@@ -107,7 +105,6 @@ p {
     text-shadow: 1px 1px var(--button-color);
     box-shadow:0 0 15px 4px rgba(0,0,0,1);
 }
-
 #submit-text {
     padding:10px;
     border:0;

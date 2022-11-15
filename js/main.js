@@ -33,7 +33,6 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-
 // DISPLAYS ALL COFFEES
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -47,7 +46,6 @@ function updateCoffees(e) {
         }
     });
     dbody.innerHTML = renderCoffees(filteredCoffees);
-
 }
 //Updates search on keyup
 function updateSearch() {
@@ -60,35 +58,29 @@ function updateSearch() {
     });
     dbody.innerHTML = renderCoffees(matching);
 }
-// TODO: create a new object for the array of coffees that is added to coffees
 
 var coffeeStorage = coffees.length + 1
 if (localStorage.length > 0) {
     coffees.push(JSON.parse(window.localStorage.getItem(coffeeStorage)));
 }
-
 // CREATES COFFEE OBJ AND ADDS TO COFFEES ARRAY
 function addCoffee(e) {
     e.preventDefault();
-
     let coffeeObj = {
-        id: coffees.length + 1,
+        id: coffeeStorage,
         name: submitText.value,
         roast: roastAdd.value
     };
-
     coffees.push(coffeeObj);
     dbody.innerHTML = renderCoffees(coffees);
     localStorage.setItem(coffeeStorage, JSON.stringify(coffeeObj));
     JSON.parse(window.localStorage.getItem(coffeeStorage));
-
+    submitText.value = '';
     // TODO:Use below for testing localstorage. Make it so that localstorage holds more than 1 coffeeObj. When page reload, all coffeeObj stay on the page
     // Localstorage = localstorage + coffeobj
     // Make it
     // console.log(JSON.parse(window.localStorage.getItem(coffeeStorage)));
 }
-
-
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var dbody = document.querySelector('#coffees');
@@ -98,9 +90,7 @@ var roastAdd = document.getElementById("added-coffee")
 var coffeeToSearch = document.getElementById("coffee-search");
 var submitText = document.getElementById('submit-text');
 
-
 dbody.innerHTML = renderCoffees(coffees);
-
 roastSelection.addEventListener('change', updateCoffees);
 coffeeToSearch.addEventListener('keyup', updateSearch);
 submitButton.addEventListener('click', addCoffee);
