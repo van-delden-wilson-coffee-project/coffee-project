@@ -1,3 +1,12 @@
+:root {
+    --espresso-color: #563635;
+    --text-color-dark-green: #5B6057;
+    --text-color-green: #6E9075;
+    --host-bg-light-green: #78C091;
+    --button-color: #81F0E5;
+    --background-color: #F0F0F0;
+    --outline-bg-color: #E6E6E6;
+}
 table {
     border-collapse: collapse;
     margin: 15px 0;
