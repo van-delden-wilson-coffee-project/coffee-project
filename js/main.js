@@ -52,6 +52,7 @@ function addCoffee(e) {
         roast: roastAdd.value
     };
     coffees.push(coffeeObj);
+    dbody.innerHTML = renderCoffees(coffees);
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
