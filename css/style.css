@@ -33,7 +33,7 @@ nav.navbar-custom-1 {
 h1 {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: bolder;
-    font-size: 3em;
+    font-size: 5em;
     color: var(--outline-bg-color);
     display: flex;
     justify-content: center;
@@ -72,15 +72,36 @@ p {
     display: flex;
     justify-content: center;
 }
-#submit-text {
-    border: none;
-    border-bottom: 2px solid var(--espresso-color);
+#coffee-search {
+    padding:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: var(--text-color-dark-green);
 }
+
+#coffee-search:focus {
+    text-shadow: 1px 1px var(--button-color);
+    box-shadow:0 0 15px 4px rgba(0,0,0,1);
+}
+
 #submit-coffee {
     background-color: var(--navbar-bg-color);
     color: var(--outline-bg-color);
     box-shadow: 4px 4px var(--button-color);
 }
+#submit-text {
+    padding:10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: var(--text-color-dark-green);
+}
+#submit-text:focus {
+    text-shadow: 1px 1px var(--button-color);
+    box-shadow:0 0 15px 4px rgba(0,0,0,1);
+}
+
 .footer {
     height: 100%;
     position: sticky;
