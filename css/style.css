@@ -6,20 +6,27 @@
     --button-color: #81F0E5;
     --background-color: #F0F0F0;
     --outline-bg-color: #E6E6E6;
+    --navbar-bg-color: #24292D;
 }
 body {
     box-sizing: border-box;
+    height: 300vh;
     margin: 0 auto;
     padding: 0;
     background-color: var(--background-color);
+}
+.navbar-custom-1 {
+    background-color: var(--navbar-bg-color);
 }
 h1 {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: bolder;
     font-size: 3em;
-    color: var(--espresso-color);
+    color: var(--outline-bg-color);
     display: flex;
     justify-content: center;
+    /*border: 1px solid var(--button-color);*/
+    border-bottom: 1px solid var(--button-color);
 }
 h3 {
     color: var(--text-color-dark-green);
@@ -32,6 +39,7 @@ p {
     font-size: 1.25em;
 }
 #coffees {
+    text-shadow: 1px 1px var(--button-color);
 }
 .coffee {
 
@@ -43,6 +51,21 @@ p {
 .coffee:nth-child(even) {
     float: left;
     margin-left: 1em;
+}
+#coffee-add-form {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#submit-text {
+    border: none;
+    border-bottom: 2px solid var(--espresso-color);
+}
+#submit-coffee {
+    background-color: var(--navbar-bg-color);
+    color: var(--outline-bg-color);
+    box-shadow: 4px 4px var(--button-color);
 }
 .remove-id {
     display: none;
