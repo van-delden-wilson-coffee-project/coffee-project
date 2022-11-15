@@ -1,5 +1,6 @@
 "use strict";
 
+
 function renderCoffee(coffee) {
     var html = '<div class="coffee">';
     html += '<div class="remove-id">' + coffee.id + '</div>';
@@ -42,7 +43,6 @@ function updateSearch() {
     });
     dbody.innerHTML = renderCoffees(matching);
 }
-
 // TODO: create a new object for the array of coffees that is added to coffees
 function addCoffee(e) {
     e.preventDefault();
@@ -52,7 +52,16 @@ function addCoffee(e) {
         roast: roastAdd.value
     };
     coffees.push(coffeeObj);
+
     dbody.innerHTML = renderCoffees(coffees);
+
+    // Set Item
+    localStorage.setItem(coffeeStorage, JSON.stringify(coffeeObj));
+// Retrieve
+    JSON.parse(window.localStorage.getItem(coffeeStorage));
+    console.log(JSON.parse(window.localStorage.getItem(coffeeStorage)));
+
+    // document.getElementById("coffees").innerHTML = localStorage.getItem("Mr.Coffee");
 }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
@@ -73,6 +82,8 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+
+
 const input = document.querySelector('input');
 var dbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit-coffee');
@@ -80,9 +91,16 @@ var roastSelection = document.querySelector('#roast-selection');
 var roastAdd = document.getElementById("added-coffee")
 var coffeeToSearch = document.getElementById("coffee-search");
 var submitText = document.getElementById('submit-text');
+var coffeeStorage = coffees.length + 1
+
+if (localStorage.length > 0) {
+    coffees.push(JSON.parse(window.localStorage.getItem(coffeeStorage)));
+}
+
 
 dbody.innerHTML = renderCoffees(coffees);
 
 roastSelection.addEventListener('change', updateCoffees);
 coffeeToSearch.addEventListener('keyup', updateSearch);
 submitButton.addEventListener('click', addCoffee);
+
