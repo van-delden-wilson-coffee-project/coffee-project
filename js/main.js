@@ -20,7 +20,7 @@ var coffees = [
 function renderCoffee(coffee) {
     var html = '<div class="col-5 col-md-3 p-0 coffee">';
     html += '<div class="remove-id">' + coffee.id + '</div>';
-    html += '<h3 class="col-3 d-inline">' + coffee.name + '</h3>';
+    html += '<h3 class="col-3 d-inline matching">' + coffee.name + '</h3>';
     html += '<p class="col-3">' + coffee.roast + '</p>';
     html += '</div>';
     return html;
@@ -58,10 +58,12 @@ function updateSearch() {
     });
     dbody.innerHTML = renderCoffees(matching);
 }
-
-var coffeeStorage = coffees.length + 1
+//This checks for anything in local storage. If there is an item in local storage,
+// push to the coffee array
 if (localStorage.length > 0) {
-    coffees.push(JSON.parse(window.localStorage.getItem(coffeeStorage)));
+    for (let i = 0; i < localStorage.length; i++) {
+        coffees.push(JSON.parse(window.localStorage.getItem(coffees.length + 1)));
+    }
 }
 // CREATES COFFEE OBJ AND ADDS TO COFFEES ARRAY
 function addCoffee(e) {
@@ -73,12 +75,15 @@ function addCoffee(e) {
     };
     coffees.push(coffeeObj);
     dbody.innerHTML = renderCoffees(coffees);
-    //
-    localStorage.setItem(coffeeStorage, JSON.stringify(coffeeObj));
-    JSON.parse(window.localStorage.getItem(coffeeStorage));
-    submitText.value = '';
-    // console.log(JSON.parse(window.localStorage.getItem(coffeeStorage)));
+    localStorage.setItem(coffeeObj.id.toString(), JSON.stringify(coffeeObj));
+    JSON.parse(window.localStorage.getItem(coffeeObj.id.toString()));
+    submitText.value = ''; //resets typed value
 }
+
+// function matchingLetters(e) {
+//     e.preventDefault();
+//     if (coffeeToSearch.value ==)
+// }
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var dbody = document.querySelector('#coffees');
@@ -91,5 +96,6 @@ var submitText = document.getElementById('submit-text');
 dbody.innerHTML = renderCoffees(coffees);
 roastSelection.addEventListener('change', updateCoffees);
 coffeeToSearch.addEventListener('keyup', updateSearch);
+// coffeeToSearch.addEventListener('keyup', matchingLetters);
 submitButton.addEventListener('click', addCoffee);
 
