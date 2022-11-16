@@ -67,18 +67,18 @@ if (localStorage.length > 0) {
 function addCoffee(e) {
     e.preventDefault();
     let coffeeObj = {
-        id: coffeeStorage,
+        id: coffees.length + 1,
         name: submitText.value,
         roast: roastAdd.value
     };
     coffees.push(coffeeObj);
     dbody.innerHTML = renderCoffees(coffees);
+    //
     localStorage.setItem(coffeeStorage, JSON.stringify(coffeeObj));
     JSON.parse(window.localStorage.getItem(coffeeStorage));
     submitText.value = '';
     // TODO:Use below for testing localstorage. Make it so that localstorage holds more than 1 coffeeObj. When page reload, all coffeeObj stay on the page
     // Localstorage = localstorage + coffeobj
-    // Make it
     // console.log(JSON.parse(window.localStorage.getItem(coffeeStorage)));
 }
 
