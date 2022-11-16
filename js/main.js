@@ -1,5 +1,5 @@
 "use strict";
-
+(function () {
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -84,4 +84,5 @@ dbody.innerHTML = renderCoffees(coffees);
 coffeeToSearch.addEventListener('keyup', updateSearch);
 roastSelection.addEventListener('change', updateSearch);
 submitButton.addEventListener('click', addCoffee);
+})();
 
