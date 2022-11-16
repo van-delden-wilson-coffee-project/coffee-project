@@ -34,22 +34,7 @@ function renderCoffees(coffees) {
     }
     return html;
 }
-//function for search and roast input fields
-//CONDITION 1: if elements of coffee name are equal to index of searched value AND coffee.roast is equal to the selected roast in dropdown
-//CONDITION 2: if elements of coffee name OR coffee roast are equal to index of searched value AND dropdown is equal to all OR an empty value
-function updateSearch() {
-    let compare = coffeeToSearch.value; //gets value of coffee-search input field
-    let selectedRoast = roastSelection.value; //gets value of dropdown
-    let matching = []; //new array of coffees
-        coffees.forEach(function (coffee) {
-            if (coffee.name.toLowerCase().indexOf(compare.toLowerCase()) !== -1 && coffee.roast === selectedRoast) {
-                matching.push(coffee); //push coffee to the array of coffees
-            } else if ((coffee.name.toLowerCase().indexOf(compare.toLowerCase()) !== -1 || coffee.roast.toLowerCase().indexOf(compare) !== -1) && selectedRoast === 'all' || selectedRoast === '') {
-                matching.push(coffee); //push coffee to new array
-            }
-        });
-    dbody.innerHTML = renderCoffees(matching);
-}
+
 //This checks for anything in local storage. If there is an item in local storage,
 // push to the coffee array
 if (localStorage.length > 0) {
@@ -72,17 +57,34 @@ function addCoffee(e) {
     submitText.value = ''; //resets typed value
 }
 
+//function for search and roast input fields
+//CONDITION 1: if elements of coffee name are equal to index of searched value AND coffee.roast is equal to the selected roast in dropdown
+//CONDITION 2: if elements of coffee name OR coffee roast are equal to index of searched value AND an empty value
+    function updateSearch() {
+        let searchedCoffee = coffeeToSearch.value; //gets value of coffee-search input field
+        let selectedRoast = roastSelection.value; //gets value of dropdown
+        let matching = []; //new array of coffees
+        coffees.forEach(function (coffee) {
+            if (coffee.name.toLowerCase().indexOf(searchedCoffee.toLowerCase()) !== -1 && coffee.roast === selectedRoast) {
+                matching.push(coffee); //push coffee to the array of coffees
+            } else if ((coffee.name.toLowerCase().indexOf(searchedCoffee.toLowerCase()) !== -1 || coffee.roast.toLowerCase().indexOf(searchedCoffee) !== -1) && selectedRoast === '') {
+                matching.push(coffee); //push coffee to new array
+            }
+        });
+        dbody.innerHTML = renderCoffees(matching);
+    }
+var roastSelection = document.querySelector('#roast-selection');
+var coffeeToSearch = document.getElementById("coffee-search");
+coffeeToSearch.addEventListener('keyup', updateSearch);
+roastSelection.addEventListener('change', updateSearch);
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var dbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit-coffee');
-var roastSelection = document.querySelector('#roast-selection');
 var roastAdd = document.getElementById("added-coffee")
-var coffeeToSearch = document.getElementById("coffee-search");
 var submitText = document.getElementById('submit-text');
 
 dbody.innerHTML = renderCoffees(coffees);
-coffeeToSearch.addEventListener('keyup', updateSearch);
-roastSelection.addEventListener('change', updateSearch);
 submitButton.addEventListener('click', addCoffee);
 })();
 
