@@ -178,9 +178,6 @@ p {
     flex-shrink: 0;
     padding: 1em 0;
 }
-.highlight {
-    background-color: lightblue;
-}
 .remove-id {
     display: none;
 }
