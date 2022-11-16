@@ -77,8 +77,6 @@ function addCoffee(e) {
     localStorage.setItem(coffeeStorage, JSON.stringify(coffeeObj));
     JSON.parse(window.localStorage.getItem(coffeeStorage));
     submitText.value = '';
-    // TODO:Use below for testing localstorage. Make it so that localstorage holds more than 1 coffeeObj. When page reload, all coffeeObj stay on the page
-    // Localstorage = localstorage + coffeobj
     // console.log(JSON.parse(window.localStorage.getItem(coffeeStorage)));
 }
 
