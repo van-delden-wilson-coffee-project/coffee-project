@@ -3,3 +3,21 @@
 .DS_STORE
 #image below is version 1 of navbar logo.
 #<img class="h-auto" id="coffee-logo" src="img/logo.png" alt="Coffee-logo">
+
+
+#function updateCoffees(e) {
+#    e.preventDefault(); // don't submit the form, we just want to update the data
+#    var selectedRoast = roastSelection.value;
+#    var filteredCoffees = [];
+#    coffees.forEach(function (coffee) {
+#        if (coffee.roast === selectedRoast) {
+#            filteredCoffees.push(coffee);
+#        } else if (selectedRoast === 'all' || selectedRoast === '') {
+#            filteredCoffees.push(coffee);
+#        }
+#    });
+#    dbody.innerHTML = renderCoffees(filteredCoffees);
+#}
+
+
+#roastSelection.addEventListener('change', updateCoffees);
