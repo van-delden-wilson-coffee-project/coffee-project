@@ -52,12 +52,6 @@ nav.navbar-custom-1 {
     justify-content: center;
     color: var(--text-color-light-green);
 }
-#ccc-logo {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    background-color: var(--outline-bg-color);
-}
 .span-logo:after {
     content: "C";
     font-family: sans-serif;
@@ -70,6 +64,12 @@ nav.navbar-custom-1 {
     animation-duration: 5000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+#ccc-logo {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: var(--outline-bg-color);
 }
 #coffee-logo {
     height: 200px;
