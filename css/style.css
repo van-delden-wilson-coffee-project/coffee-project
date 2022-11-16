@@ -10,15 +10,86 @@
 }
 body {
     box-sizing: border-box;
-    height: 100%;
+    max-height: 300vh;
     margin: 0 auto;
     padding: 0;
     background-color: var(--background-color);
 }
 nav.navbar-custom-1 {
     background-color: var(--navbar-bg-color);
-    justify-content: normal!important;
+    justify-content: center;
 }
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform: rotate3d(0, 1, 0, 360deg);
+    }
+}
+.span-logo:before {
+    font-family: Helvetica, sans-serif;
+    content: "C";
+    margin: 0;
+    display: inline-flex;
+    justify-content: center;
+    translate: 100%;
+    color: var(--text-color-dark-green);
+    animation-name: spin;
+    animation-duration: 10000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.span-logo {
+    animation-name: spin;
+    animation-duration: 20000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    font-family: Helvetica, sans-serif;
+    font-size: 10.5em;
+    margin: 0;
+    display: inline-flex;
+    justify-content: center;
+    color: var(--text-color-light-green);
+}
+#ccc-logo {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: var(--outline-bg-color);
+}
+.span-logo:after {
+    content: "C";
+    font-family: sans-serif;
+    translate: -100%;
+    margin: 0;
+    display: inline-flex;
+    justify-content: center;
+    color: var(--text-color-green);
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.span-logo:hover {
+    /*background-color: red;*/
+}
+/*.span-logo:nth-of-type(2) {*/
+/*    font-family: sans-serif;*/
+/*    font-size: 8em;*/
+/*    position: relative;*/
+/*    !*right: 165px;*!*/
+/*    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+/*    color: var(--text-color-green);*/
+/*}*/
+/*.span-logo:nth-of-type(3) {*/
+/*    font-family: sans-serif;*/
+/*    font-size: 6em;*/
+/*    position: relative;*/
+/*    !*right: 305px;*!*/
+/*    color: var(--text-color-light-green);*/
+/*    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+/*}*/
 #coffee-logo {
     height: 200px;
     width: 200px;
@@ -126,7 +197,7 @@ p {
     position: sticky;
     bottom: 0;
     background-color: var(--navbar-bg-color);
-    margin: auto;
+    margin-top: 18em;
     flex-shrink: 0;
     padding: 1em 0;
 }
