@@ -67,14 +67,14 @@ function addCoffee(e) {
 }
 
 //function for search and roast input fields
-//CONDITION 1: IF searched value is a present in coffee.name AND coffee.roast is equal to the selected roast in dropdown light/medium/dark
+//CONDITION 1: IF searched value is a present in coffee.name OR search value is empty AND coffee.roast is equal to the selected roast in dropdown light/medium/dark
 //CONDITION 2: IF searched value is a present in coffee.name OR searched value is present in coffee roast AND selected roast dropdown is equal to an empty string, all/select a roast
 function updateSearch() {
     let searchedCoffee = coffeeToSearch.value; //gets value of coffee-search input field
     let selectedRoast = roastSelection.value; //gets value of dropdown
     let matching = []; //new array of coffees
     coffees.forEach(function (coffee) {
-        if (coffee.name.toLowerCase().indexOf(searchedCoffee.toLowerCase()) !== -1 && coffee.roast === selectedRoast) {
+        if ((coffee.name.toLowerCase().indexOf(searchedCoffee.toLowerCase()) !== -1 || coffee.name === '') && coffee.roast === selectedRoast) {
             matching.push(coffee); //push coffee to the array of coffees
         } else if ((coffee.name.toLowerCase().indexOf(searchedCoffee.toLowerCase()) !== -1 || coffee.roast.toLowerCase().indexOf(searchedCoffee) !== -1) && selectedRoast === '') {
             matching.push(coffee); //push coffee to new array
@@ -85,6 +85,7 @@ function updateSearch() {
 
 //LISTENERS
 coffeeToSearch.addEventListener('keyup', updateSearch);
+coffeeToSearch.addEventListener('search', updateSearch);
 roastSelection.addEventListener('change', updateSearch);
 submitButton.addEventListener('click', addCoffee);
 //Render coffees
